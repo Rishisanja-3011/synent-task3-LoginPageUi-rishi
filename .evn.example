@@ -1,0 +1,4 @@
+SECRET_KEY=synent-super-secret-key-2026
+DATABASE_URL=mysql+pymysql://root:Patel_2101@localhost/synent_auth
+MAIL_USERNAME=sanjarishi99@gmail.com
+MAIL_PASSWORD=lqylyialbnogmfrv
