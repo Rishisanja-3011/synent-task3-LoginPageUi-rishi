@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Login — Synent Auth{% endblock %}
+
+{% block content %}
+<h1 class="auth-title">Welcome back.</h1>
+<p class="auth-subtitle">Sign in to your account to continue.</p>
+
+<form method="POST" action="{{ url_for('login') }}" data-validate>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <div class="input-wrap">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        value="{{ email|default('') }}"
+        autocomplete="email"
+        required
+      />
+      <span class="icon">✉</span>
+    </div>
+    <span class="field-error"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <div class="input-wrap">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        autocomplete="current-password"
+        required
+      />
+      <span class="icon">🔒</span>
+      <button type="button" class="toggle-password" aria-label="Toggle password">👁️</button>
+    </div>
+    <span class="field-error"></span>
+  </div>
+
+  <div class="forgot-wrap">
+    <a href="{{ url_for('forgot_password') }}" class="forgot-link">Forgot password?</a>
+  </div>
+
+  <button type="submit" class="btn-primary">Sign In →</button>
+</form>
+
+<p class="form-footer">
+  Don't have an account? <a href="{{ url_for('register') }}">Create one</a>
+</p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Synent Auth{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Verified Account
+  </div>
+  <h1 class="auth-title">Hello, {{ user.name.split()[0] }}.</h1>
+  <p class="auth-subtitle">You're successfully logged in.</p>
+</div>
+
+<div style="margin-bottom: 1.5rem; padding: 1.25rem; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+  <p style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.5rem;">Account Details</p>
+  <p style="font-size: 0.95rem; color: var(--text); margin-bottom: 0.25rem;">📧 {{ user.email }}</p>
+  <p style="font-size: 0.82rem; color: var(--muted);">Member since {{ user.created_at.strftime('%B %Y') }}</p>
+</div>
+
+<a href="{{ url_for('logout') }}" class="btn-outline">Sign Out</a>
+{% endblock %}

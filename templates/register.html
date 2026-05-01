@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Register — Synent Auth{% endblock %}
+
+{% block content %}
+<h1 class="auth-title">Create account.</h1>
+<p class="auth-subtitle">Join Synent Technologies today.</p>
+
+<form method="POST" action="{{ url_for('register') }}" data-validate>
+
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <div class="input-wrap">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Sanja Bharatbhai"
+        value="{{ name|default('') }}"
+        autocomplete="name"
+        required
+      />
+      <span class="icon">👤</span>
+    </div>
+    <span class="field-error"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <div class="input-wrap">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        value="{{ email|default('') }}"
+        autocomplete="email"
+        required
+      />
+      <span class="icon">✉</span>
+    </div>
+    <span class="field-error"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <div class="input-wrap">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Min. 8 characters"
+        autocomplete="new-password"
+        required
+      />
+      <span class="icon">🔒</span>
+      <button type="button" class="toggle-password" aria-label="Toggle password">👁️</button>
+    </div>
+    <div class="strength-bar">
+      <div class="strength-segment"></div>
+      <div class="strength-segment"></div>
+      <div class="strength-segment"></div>
+      <div class="strength-segment"></div>
+    </div>
+    <span class="field-error"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="confirm_password">Confirm Password</label>
+    <div class="input-wrap">
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        placeholder="Repeat password"
+        autocomplete="new-password"
+        required
+      />
+      <span class="icon">🔒</span>
+      <button type="button" class="toggle-password" aria-label="Toggle password">👁️</button>
+    </div>
+    <span class="field-error"></span>
+  </div>
+
+  <button type="submit" class="btn-primary">Create Account →</button>
+</form>
+
+<p class="form-footer">
+  Already have an account? <a href="{{ url_for('login') }}">Sign in</a>
+</p>
+{% endblock %}
